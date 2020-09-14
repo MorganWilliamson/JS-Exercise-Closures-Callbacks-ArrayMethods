@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+Closure is what enables us to put functions together, with identified code that can be used elsewhere. Core concept of the parent/child structure.
 2. Study the following code, then answer the questions below.
 
 ```js
