@@ -58,17 +58,19 @@ Write a function called `inning` that generates a random number of points that a
 
 // Math.round(Math.random() * (2 - 0) + 0); //Generates a random number between 0-2, then rounds it up to a whole number.
 
+// function inning(){
+//     homeScore = Math.round(Math.random() * (2 - 0) + 0); //Generates score for Home Team
+//     awayScore = Math.round(Math.random() * (2 - 0) + 0); //Generates score for Away Team
+//     return `Home: ${homeScore}, Away: ${awayScore}`; //Returns individual scores
+// }
+
+// console.log(inning());
+
 function inning(){
-    homeScore = Math.round(Math.random() * (2 - 0) + 0); //Generates score for Home Team
-    awayScore = Math.round(Math.random() * (2 - 0) + 0); //Generates score for Away Team
-    return `Home: ${homeScore}, Away: ${awayScore}`; //Returns individual scores
+    return Math.round(Math.random() * (2 - 0) + 0);
 }
 
-console.log(inning());
-
-
-
-
+inning();
 
 /* Task 3: finalScore()
 
@@ -82,12 +84,10 @@ finalScore(inning, 9) might return:
   "Away": 5,
 }
 
-*/ 
+/* attempt # 3 */
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(){
+  
 }
 
 /* Task 4: 
