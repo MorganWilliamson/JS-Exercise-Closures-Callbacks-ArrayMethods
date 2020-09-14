@@ -27,11 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * counter1 is a more enclosed, reusable function. Having count declared outside of function scope for counter2 makes it more liable to cause an error.
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * counter1 uses a closure, because it nests another function one layer deeper. 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * counter1 is preferrable in a situation where you need to apply a general counting function, whereas counter2 is a better for a single count increase.
 */
 
 // counter1 code
