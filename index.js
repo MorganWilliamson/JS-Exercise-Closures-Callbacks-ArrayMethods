@@ -86,15 +86,23 @@ finalScore(inning, 9) might return:
 
 /* attempt # 3 */
 
-function finalScore(){
-  
+function finalScore(game, rounds){
+  let home = 0;
+  let away = 0;
+  for (let i = 0; i < rounds; i++){
+    home+= game();
+    away+= game();
+  }
+  return {Home: home, Away: away}
 }
+
+console.log("Final Score: ", finalScore(inning, 9));
 
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
 
-(1) Callback function `getInningScore`
+(1) Callback function `getInningScore`  (finalScore ?)
 (2) Callback function `inning`
 (2) A number of innings
 
@@ -112,8 +120,15 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(rulesCb, totalCb, rounds) {
+  const container = [ ];
+  for(let i = 0; i < rounds; i++){
+    container.push({Home: rulesCb(), Away: rulesCb()});
+  };
+  const final = container.push(totalCb(rulesCb, rounds));
+  return container;
 }
+
+console.log("Scoreboard: ", scoreboard(inning, finalScore, 9))
 
 
