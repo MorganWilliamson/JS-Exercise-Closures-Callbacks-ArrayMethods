@@ -127,10 +127,7 @@ function scoreboard(rulesCb, totalCb, rounds) {
   };
   container.push(totalCb(rulesCb, rounds));
 
-  // let scoreTotal = container.reduce(function(cur, prev){
-  //   return cur + prev.Away;
-  // }, 0)
-  // console.log('Total Score: ', scoreTotal)
+  sum = ;
 
   return container;
 }
