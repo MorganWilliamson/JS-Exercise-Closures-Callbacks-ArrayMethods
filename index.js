@@ -96,7 +96,7 @@ function finalScore(game, rounds){
   return {Home: home, Away: away}
 }
 
-console.log("Final Score: ", finalScore(inning, 9));
+// console.log("Final Score: ", finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -127,11 +127,19 @@ function scoreboard(rulesCb, totalCb, rounds) {
   };
   container.push(totalCb(rulesCb, rounds));
 
-  sum = ;
-
   return container;
 }
 
-console.log("Scoreboard: ", scoreboard(inning, finalScore, 9))
+function getInningScore(rulesCb){
+  let home = 0;
+  let away = 0;
+  for (let i = 0; i < rulesCb; i++){
+    home = home + rulesCb;
+    away = away + rulesCb;
+  }
+  return `Final Score: Home: ${home}, Away: ${away}`;
+}
 
+console.log("Scoreboard: ", scoreboard(inning, finalScore, 9))
+console.log(getInningScore(inning()));
 
