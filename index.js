@@ -125,7 +125,13 @@ function scoreboard(rulesCb, totalCb, rounds) {
   for(let i = 0; i < rounds; i++){
     container.push({Home: rulesCb(), Away: rulesCb()});
   };
-  const final = container.push(totalCb(rulesCb, rounds));
+  container.push(totalCb(rulesCb, rounds));
+
+  // let scoreTotal = container.reduce(function(cur, prev){
+  //   return cur + prev.Away;
+  // }, 0)
+  // console.log('Total Score: ', scoreTotal)
+
   return container;
 }
 

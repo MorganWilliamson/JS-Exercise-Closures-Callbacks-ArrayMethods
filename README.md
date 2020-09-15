@@ -63,9 +63,9 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell? Closure is within the anonymous function, because it creates an inner function scope.
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? Name is always the same, the resulting roll is what changes. 
+c. What is the lexical scope of `newRoll`? newRoll's scope is just within the function.
 
 ### Task 3 - Stretch Goals
 
