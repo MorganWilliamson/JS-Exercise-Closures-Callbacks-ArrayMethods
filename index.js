@@ -122,10 +122,19 @@ Final Score: awayTeam - homeTeam */
 
 function scoreboard(rulesCb, totalCb, rounds) {
   const container = [ ];
+  let home = 0;
+  let away = 0;
+  let hFinal = 0
+  let aFinal = 0
   for(let i = 0; i < rounds; i++){
-    container.push({Home: rulesCb(), Away: rulesCb()});
+    home = rulesCb()
+    away = rulesCb()
+    container.push({Home: home, Away: away});
+    hFinal += home
+    aFinal += away
   };
-  container.push(totalCb(rulesCb, rounds));
+
+  container.push({"Final Home": hFinal, "Away Final": aFinal});
 
   return container;
 }
