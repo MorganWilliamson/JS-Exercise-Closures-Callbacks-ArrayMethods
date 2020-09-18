@@ -27,11 +27,11 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * counter1 is a more enclosed, reusable function. Having count declared outside of function scope for counter2 makes it more liable to cause an error.
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * counter1 uses a closure, because it nests another function one layer deeper. 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * counter1 is preferrable in a situation where you need to apply a general counting function, whereas counter2 is a better for a single count increase.
 */
 
 // counter1 code
@@ -56,11 +56,21 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+// Math.round(Math.random() * (2 - 0) + 0); //Generates a random number between 0-2, then rounds it up to a whole number.
 
-    /*Code Here*/
+// function inning(){
+//     homeScore = Math.round(Math.random() * (2 - 0) + 0); //Generates score for Home Team
+//     awayScore = Math.round(Math.random() * (2 - 0) + 0); //Generates score for Away Team
+//     return `Home: ${homeScore}, Away: ${awayScore}`; //Returns individual scores
+// }
 
+// console.log(inning());
+
+function inning(){
+    return Math.round(Math.random() * (2 - 0) + 0);
 }
+
+inning();
 
 /* Task 3: finalScore()
 
@@ -74,19 +84,25 @@ finalScore(inning, 9) might return:
   "Away": 5,
 }
 
-*/ 
+/* attempt # 3 */
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(game, rounds){
+  let home = 0;
+  let away = 0;
+  for (let i = 0; i < rounds; i++){
+    home+= game();
+    away+= game();
+  }
+  return {Home: home, Away: away}
 }
+
+// console.log("Final Score: ", finalScore(inning, 9));
 
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
 
-(1) Callback function `getInningScore`
+(1) Callback function `getInningScore`  (finalScore ?)
 (2) Callback function `inning`
 (2) A number of innings
 
@@ -104,8 +120,35 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(rulesCb, totalCb, rounds) {
+  const container = [ ];
+  let home = 0;
+  let away = 0;
+  let hFinal = 0
+  let aFinal = 0
+  for(let i = 0; i < rounds; i++){
+    home = rulesCb()
+    away = rulesCb()
+    container.push({Home: home, Away: away});
+    hFinal += home
+    aFinal += away
+  };
+
+  container.push({"Final Home": hFinal, "Away Final": aFinal});
+
+  return container;
 }
 
+function getInningScore(rulesCb){
+  let home = 0;
+  let away = 0;
+  for (let i = 0; i < rulesCb; i++){
+    home = home + rulesCb;
+    away = away + rulesCb;
+  }
+  return `Final Score: Home: ${home}, Away: ${away}`;
+}
+
+console.log("Scoreboard: ", scoreboard(inning, finalScore, 9))
+console.log(getInningScore(inning()));
 
